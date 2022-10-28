@@ -1,6 +1,8 @@
 <?= $this->extend("./layouts/template"); ?>
 
 <?= $this->section("content"); ?>
+
+    <?php if(session()->get('role') === 'admin') : ?>
     <div class="container">
         <div class="card my-3">
             <div class="card-header">
@@ -26,7 +28,7 @@
                                 <a href="<?= base_url('siswa/'.$s['id'].'/edit'); ?>" class="btn btn-secondary mr-1">Edit</a>
                                 <form action="<?= base_url('siswa/'.$s['id']); ?>" method="post">
                                     <input type="hidden" name="_method" value="delete">
-                                    <button type="submit" class="btn btn-danger mr-1 mt-1 " onclick="confirm('Hapus Data ?')" >
+                                    <button type="submit" class="btn btn-danger mr-1 mt-1 " onclick="return confirm('Hapus Data ?')" >
                                         Delete
                                     </button>
                                     
@@ -39,4 +41,9 @@
             </div>
         </div>
     </div>
+    <?php else : ?>
+        <div class="alert alert-danger" role="admin">
+            Anda tidak memiliki akses untuk melihat data
+        </div>
+    <?php endif; ?>
 <?= $this->endSection(); ?>

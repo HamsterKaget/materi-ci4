@@ -7,16 +7,34 @@
                 <h3 class="text-center">Form Login</h3>
             </div>
             <div class="card-body">
+                <?php if(session()->getFlashdata('login_failed')) : ?>
+                    <div class="row">
+                        <div role="alert" class="alert alert-danger col-lg-4 mx-auto">
+                            <?= session()->getFlashdata('login_failed'); ?>
+                        </div>
+                    </div>
+                <?php endif; ?>
                 <div class="row">
                     <div class="col mx-auto">
-                        <form action="<?= base_url('registrasi/simpan'); ?>" method="post">
+                        <form action="<?= base_url('login/proses-login'); ?>" method="post">
                             <?= csrf_field() ?>
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" name="email" required>
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" required>
-                            <br>
-                            <input type="submit" class="btn btn-success" value="Login">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" class="form-control" <?php if($validation->hasError('email')) echo "is-invalid" ?> value="<?= old('email') ?>" name="email" required>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('email'); ?>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" <?php if($validation->hasError('password')) echo "is-invalid" ?> value="<?= old('password') ?>" name="password" required>
+                                <div class="invalid-feedback">
+                                    <?= $validation->getError('password'); ?>
+                                </div>
+                            </div>
+                            
+                            
+                            <input type="submit" class="btn btn-primary" value="Login">
                         </form> 
                     </div>
                 </div>

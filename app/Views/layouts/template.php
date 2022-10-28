@@ -16,15 +16,22 @@
             <li><a href="<?= base_url('home') ?>" class="nav-link">Home</a></li>
             <li><a href="<?= base_url('infokegiatan') ?>" class="nav-link">Info Kegiatan</a></li>
             <li><a href="<?= base_url('datasiswa') ?>" class="nav-link">Data Siswa</a></li>
+            <li><a href="<?= base_url('siswa') ?>" class="nav-link">CRUD SISWA</a></li>
         </ul>
-
         <ul class="navbar-nav ml-auto">
+        <?php if(session()->get('logged_in') === TRUE) : ?>
+          <li class="nav-link">
+          <a href="<?= base_url('logout') ?>" class="btn btn-outline-light">Logout</a>
+            
+          </li>
+        <?php else : ?>
           <li class="nav-link">
             <a href="<?= base_url('login') ?>" class="btn btn-outline-primary">Login</a>
           </li>
           <li class="nav-link">
             <a href="<?= base_url('registrasi') ?>" class="btn btn-outline-success">Registrasi</a>
           </li>
+        <?php endif; ?>
         </ul>
     </nav>
 

@@ -44,7 +44,7 @@ $routes->get('/datasiswa', 'UserController::dataSiswa');
 $routes->get('/registrasi', 'AuthController::registrasi');
 $routes->post('/registrasi/simpan', 'AuthController::simpanRegistrasi');
 $routes->get('/login', 'AuthController::login');
-$routes->post('/login/simpan', 'AuthController::simpanLogin');
+$routes->post('/login/proses-login', 'AuthController::prosesLogin');
 $routes->get('/logout', 'AuthController::logout');
 
 // CRUD System
