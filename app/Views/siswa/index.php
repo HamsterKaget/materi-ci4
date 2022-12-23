@@ -9,7 +9,10 @@
                 <h3>Data Siswa</h3>
             </div>
             <div class="card-body">
-                <a href="<?= base_url('siswa/new') ?>">Tambah Data Siswa</a>
+                <div class="d-flex justify-content-between">
+                    <a href="<?= base_url('siswa/new') ?>" class="btn btn-success mb-4">Tambah Data Siswa</a>
+                    <a href="<?= base_url('pdf/generate'); ?>" target="_blank" rel="noopener noreferrer" class="btn btn-secondary mb-4">Eksport</a>
+                </div>
                 <table class="table table-bordered table-striped">
                     <tr>
                         <th>Nama</th>

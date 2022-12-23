@@ -57,6 +57,9 @@ $routes->patch('/siswa/(.*)', 'SiswaController::update/$1');
 $routes->put('/siswa/(.*)', 'SiswaController::update/$1');
 $routes->delete('/siswa/(.*)', 'SiswaController::delete/$1');
 
+// PDF
+$routes->get('/pdf/generate', 'PDFController::generatePDF');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
